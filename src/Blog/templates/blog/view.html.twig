@@ -1,0 +1,15 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}{{ post.title }} | Blog {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>{{ post.title }}</h1>
+            <p>
+                {{ post.content }}
+            </p>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+---
+Blog\Entity\BlogPost:
+  type: entity
+  table: blog_post
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    title:
+      type: string
+      length: 255
+    content:
+      type: string
+      length: 16777215

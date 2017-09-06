@@ -1,0 +1,23 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+    <div class="row">
+
+        {% for post in posts %}
+
+            <div class="col-md-4">
+                <h2>
+                    <a href="/blog/view/{{ post.id }}">
+                        <i class="fa fa-refresh"></i> {{ post.title }}
+                    </a>
+                </h2>
+                <p>
+                    {{ post.content }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

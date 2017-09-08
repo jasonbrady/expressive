@@ -39,6 +39,7 @@ class ConfigProvider
             'invokables' => [
             ],
             'factories'  => [
+                Action\LoginAction::class => Action\LoginActionFactory::class,
                 AuthenticationService::class => AuthenticationServiceFactory::class,
                 MyAuthAdapter::class => MyAuthAdapterFactory::class
             ],

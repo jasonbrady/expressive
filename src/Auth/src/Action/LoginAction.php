@@ -81,6 +81,17 @@ class LoginAction implements ServerMiddlewareInterface
             ]);
         }
 
-        $this
+        $this->authAdapter->setUsername($params['username']);
+        $this->authAdapter->setPassword($params['password']);
+
+        $result = $this->auth->authenticate();
+        if(!$result->isValid()) {
+            return new HtmlResponse($this->template->render('auth::login', [
+                'username' => $params['username'],
+                'error' => 'The credentials provided are not valid',
+            ]));
+        }
+
+        return new RedirectResponse('/admin');
     }
 }

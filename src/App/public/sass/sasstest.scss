@@ -1,0 +1,26 @@
+$green: #68b604;
+$white: #eee;
+
+body {
+  background: $white;
+  padding-top: 60px;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+}
+
+.app-footer {
+  padding-bottom: 1em;
+}
+
+.zf-green,
+h2 a {
+  color: $green;
+}

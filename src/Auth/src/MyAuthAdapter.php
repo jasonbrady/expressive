@@ -14,14 +14,8 @@ use Zend\Authentication\Result;
 
 class MyAuthAdapter implements AdapterInterface
 {
-
     private $password;
     private $username;
-
-    public function __construct()
-    {
-
-    }
 
     public function setPassword(string $password) : void
     {
@@ -35,6 +29,11 @@ class MyAuthAdapter implements AdapterInterface
 
     public function authenticate()
     {
+        $row = [
+            'username' => 'test',
+            'password' => password_hash('test', PASSWORD_DEFAULT),
+        ];
+
         if(password_verify($this->password, $row['password'])) {
             return new Result(Result::SUCCESS, $row);
         }

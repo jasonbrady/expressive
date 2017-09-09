@@ -3,6 +3,7 @@
 namespace Auth;
 
 
+use Auth\Factory\RoutesDelegator;
 use Zend\Authentication\AuthenticationService;
 
 /**
@@ -36,6 +37,11 @@ class ConfigProvider
     public function getDependencies()
     {
         return [
+            'delegators' => [
+                \Zend\Expressive\Application::class => [
+                    RoutesDelegator::class,
+                ],
+            ],
             'invokables' => [
             ],
             'factories'  => [
@@ -55,9 +61,7 @@ class ConfigProvider
     {
         return [
             'paths' => [
-                'app'    => [__DIR__ . '/../templates/app'],
-                'error'  => [__DIR__ . '/../templates/error'],
-                'layout' => [__DIR__ . '/../templates/layout'],
+                'auth'    => [__DIR__ . '/../templates/auth'],
             ],
         ];
     }

@@ -69,16 +69,16 @@ class LoginAction implements ServerMiddlewareInterface
         $params = $request->getParsedBody();
 
         if(empty($params['username'])) {
-            return new HtmlResponse($this->template->render('auth::login'), [
+            return new HtmlResponse($this->template->render('auth::login', [
                 'error' => 'The username cannot be empty',
-            ]);
+            ]));
         }
 
         if(empty($params['password'])) {
-            return new HtmlResponse($this->template->render('auth::login'), [
+            return new HtmlResponse($this->template->render('auth::login', [
                 'username' => $params['username'],
                 'error' => 'The password cannot be empty',
-            ]);
+            ]));
         }
 
         $this->authAdapter->setUsername($params['username']);
